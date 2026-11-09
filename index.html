@@ -34,6 +34,11 @@ h1 span,h2 span{white-space:nowrap}
 .nav a.cta{background:var(--orange);color:#fff}
 .nav .logo-n img{width:52px;height:52px}
 .nav .mob{display:none}
+.burger{display:none;width:44px;height:44px;border:0;background:var(--teal);border-radius:50%;cursor:pointer;flex-direction:column;align-items:center;justify-content:center;gap:4px;justify-self:end}
+.burger span{display:block;width:18px;height:2px;background:#fff;border-radius:2px;transition:.25s}
+.nav.open .burger span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 /* HERO */
 .hero{position:relative;height:min(88vh,820px);min-height:560px;overflow:hidden}
@@ -157,7 +162,18 @@ h1 span,h2 span{white-space:nowrap}
 .mlinks .sc{margin:0}
 .price{background:var(--aqua);padding:clamp(56px,8vw,90px) 22px;text-align:center}
 .pin{max-width:640px;margin:0 auto;background:var(--cream);border-radius:30px;padding:clamp(28px,5vw,48px);transform:rotate(-1.5deg);box-shadow:0 14px 30px rgba(0,0,0,.08)}
-.pin h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:.4em}
+.pin h2{font-size:clamp(28px,3.6vw,40px);margin-bottom:.6em}
+.pin{max-width:760px!important}
+.tiers{display:grid;grid-template-columns:1fr 1fr;gap:12px;text-align:left;margin-bottom:1em}
+.tiers > div{background:#fff;border-radius:22px;padding:20px}
+.tiers > div.hot{background:var(--teal);color:#fff}
+.tiers b{display:block;font-size:20px;color:var(--orange)}
+.tiers .hot b{color:var(--yellow)}
+.amt{display:block;font-family:"Retro",Manrope,sans-serif;font-size:32px;line-height:1.05;margin-top:.2em}
+.tiers small{display:block;font-size:12.5px;opacity:.75;margin-bottom:.6em}
+.tiers p{font-size:14px;margin:0}
+.note2{font-size:13.5px;opacity:.8}
+@media (max-width:620px){.tiers{grid-template-columns:1fr}}
 .sc{display:inline-flex;align-items:center;gap:12px;margin-top:.6em;text-decoration:none;background:var(--orange);color:#fff;border-radius:999px;padding:.55em 1.2em .55em .55em;font-weight:700;transition:transform .2s;align-self:flex-start}
 .sc:hover{transform:scale(1.04)}
 .sc .p{width:42px;height:42px;border-radius:50%;background:var(--yellow);display:grid;place-items:center}
@@ -169,6 +185,7 @@ h1 span,h2 span{white-space:nowrap}
 .music2 h2{color:var(--yellow);font-size:clamp(30px,4vw,46px);margin-bottom:.5em}
 .music2 .kicker{color:var(--peach)}
 .music2 p{max-width:34em;margin-bottom:1em}
+.inl{color:var(--yellow);font-weight:700}
 .srows{display:flex;flex-direction:column;gap:10px;margin:.4em 0 1.6em;max-width:520px}
 .srow{display:flex;align-items:center;gap:14px;text-decoration:none;color:#fff;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);padding:10px 14px 10px 10px;transition:background .2s,transform .2s}
 .srow:hover{background:rgba(255,255,255,.13);transform:translateX(4px)}
@@ -177,8 +194,10 @@ h1 span,h2 span{white-space:nowrap}
 .srow small{font-size:12px;opacity:.7}
 .srow .pl{margin-left:auto;flex:0 0 38px;height:38px;border-radius:50%;background:var(--yellow);display:grid;place-items:center}
 .ncol{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:620px;width:100%;margin-left:auto}
-.ncol img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
-.ncol img:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto;height:100%}
+.nf{position:relative;aspect-ratio:1;overflow:hidden}
+.nf:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
+.nf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
+.nf img.on{opacity:1}
 /* FAQ */
 .faqs{max-width:1100px;margin:0 auto;padding:clamp(64px,9vw,110px) 22px}
 .fcols{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;align-items:start}
@@ -204,8 +223,11 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
 @media (max-width:900px){
   .nav .in{grid-template-columns:auto 1fr;padding:8px 14px}
   .nav ul{display:none}
-  .nav .mob{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none;justify-content:flex-start}
-  .nav .mob::-webkit-scrollbar{display:none}
+  .burger{display:flex}
+  .nav .mob{display:none;position:absolute;left:0;right:0;top:100%;background:var(--cream);flex-direction:column;align-items:stretch;padding:8px 14px 16px;gap:2px;box-shadow:0 12px 24px rgba(0,0,0,.12)}
+  .nav.open .mob{display:flex}
+  .nav .mob a{font-size:16px;padding:.7em .9em;border-radius:14px}
+  .nav .mob a.cta{text-align:center;margin-top:6px}
   .nav .logo-n img{width:42px;height:42px}
   .split{grid-template-columns:1fr;min-height:0}
   .split .ph,.stripes,.vita .l{padding:44px 20px}
@@ -221,6 +243,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
   .card{transform:rotate(-2deg)}
   .stamp{width:84px;right:-6px;top:-30px}
 }
+@media (max-width:620px){.deco{width:46px;height:46px}.explore{padding-top:96px}.explore .deco{top:22px!important}.faqs .deco{top:24px!important}.half .deco{top:14px!important}.pin .deco{right:8px!important;top:-22px!important}}
 @media (max-width:560px){.feat{grid-template-columns:1fr}.hero{height:auto;min-height:0}.hv{position:relative;height:62vh}.hv.w{display:none}.hv.p{display:block}.card{position:relative;left:auto;bottom:auto;margin:-80px auto 30px;width:calc(100% - 28px)}}
 @media (prefers-reduced-motion:reduce){.ticker .tr,.bars i{animation:none}html{scroll-behavior:auto}}
 </style>
@@ -241,10 +264,11 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
       <li><a href="#vita">Wie ben ik</a></li>
       <li><a href="#muziek">Muziek</a></li>
       <li><a href="#vragen">Vragen</a></li>
-      <li><a class="cta" href="#meedoen">Ik wil mee</a></li>
+      <li><a class="cta" href="#meedoen">Interesse?</a></li>
     </ul>
+    <button class="burger" aria-label="Menu" aria-expanded="false" onclick="const n=this.closest('.nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
     <div class="mob">
-      <a href="#wat">Wat is het</a><a href="#doen">Wat doen we</a><a href="#huis">Het huis</a><a href="#eten">Eten</a><a href="#kosten">Kosten</a><a href="#vita">Wie ben ik</a><a href="#muziek">Muziek</a><a href="#vragen">Vragen</a><a class="cta" href="#meedoen">Ik wil mee</a>
+      <a href="#wat">Wat is het</a><a href="#doen">Wat doen we</a><a href="#huis">Het huis</a><a href="#eten">Eten</a><a href="#kosten">Kosten</a><a href="#vita">Wie ben ik</a><a href="#muziek">Muziek</a><a href="#vragen">Vragen</a><a class="cta" href="#meedoen">Interesse?</a>
     </div>
   </div>
 </nav>
@@ -256,10 +280,10 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
 
   <div class="card">
     <img class="stamp" src="img/logo.png" alt="">
-    <span class="kicker">High on Life · Madeira</span>
+    <span class="kicker">Eerste editie · voorjaar 2027</span>
     <h1 class="retro">Zin om een weekje<br>te spelen?</h1>
-    <p>Een huis op de berg, een eiland vol avontuur en een groep leuke mensen. We wandelen, zwemmen, koken, gaan uit eten, maken muziek en genieten gewoon heel hard van het leven.</p>
-    <a class="btn" href="#meedoen">Ik wil mee!</a>
+    <p>Ik ontvang groepen in een huis op de berg op Madeira. Kom solo of met je eigen crew: we wandelen, zwemmen, koken, gaan uit eten, maken muziek en genieten heel hard van het leven. Ik ben er de hele week bij als host en kok.</p>
+    <a class="btn" href="#meedoen">Ik heb interesse!</a>
   </div>
 </header>
 
@@ -270,9 +294,11 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
   <div class="half" style="position:relative"><span class="deco" data-folk="sun" style="right:8%;top:40px;transform:rotate(-8deg)"></span>
     <span class="kicker o">Wat is High on Life</span>
     <h2 class="retro t">Samen op vakantie.<br><span class="o" style="white-space:normal">Nieuwe vrienden mee naar huis.</span></h2>
-    <p>High on Life is samen een weekje weg op Madeira. Je komt alleen, met een vriend(in) of met je hele crew, en we maken er samen iets moois van. Vol zon, lekker eten, nieuwe mensen en dingen die je nog nooit hebt gedaan.</p>
-    <p>Er is geen strak programma. We kijken wie er komen en waar we zin in hebben. Een wandeling langs de kliffen, de zee in, samen koken, een feestje op het dak of gewoon een middag helemaal niks.</p>
-    <div class="pills t"><span>Solo of met vrienden</span><span>6 tot 10 personen</span><span>Data op aanvraag</span></div>
+    <p>High on Life is samen een weekje weg op Madeira, in een huis waar ik groepen ontvang en host. Er zijn twee manieren om te komen:</p>
+    <p><b>Kom je solo?</b> Dan stellen we samen een groep samen met andere mensen die zin hebben in een week vol zon, lekker eten en nieuwe vrienden.<br><b>Kom je met je eigen groep?</b> Dan is het huis voor jullie en stemmen we samen af waar jullie zin in hebben.</p>
+    <p>Ik ben er sowieso bij: ik zorg voor het eten en ben jullie gastvrouw voor de week.</p>
+    <p>De eerste editie staat gepland voor het voorjaar van 2027, in april of mei. Heb je interesse? Laat het me weten. Dan kijk ik wie er komen en maken we samen een plan.</p>
+    <div class="pills t"><span>Solo of met vrienden</span><span>6 tot 10 personen</span><span>April/mei 2027</span></div>
   </div>
   <div class="half stripes">
     <div class="tilt"><span class="clip"></span><video class="loop" src="vid/zee.mp4" poster="vid/zee.jpg" muted loop playsinline preload="none"></video></div>
@@ -288,7 +314,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
     <div class="ico" data-c="#5ecac9"><div class="f"><em data-folk="wave"></em></div><b>Zwemmen</b><small>De oceaan in, of in natuurlijke zwembaden tussen de lavarotsen</small></div>
     <div class="ico" data-c="#f9b4a7"><div class="f"><em data-folk="pan"></em></div><b>Samen koken</b><small>Pannenkoekjes met eigen bananen, pizza uit de houtoven</small></div>
     <div class="ico" data-c="#f7f3ea"><div class="f"><em data-folk="skewer"></em></div><b>Lekker uit eten</b><small>Espetada boven het vuur, bolo do caco en een poncha erbij</small></div>
-    <div class="ico" data-c="#f9b4a7"><div class="f"><em data-folk="guitar"></em></div><b>Muziek maken</b><small>Jammen op gitaar en drums, of draaien op het dak</small></div>
+    <div class="ico" data-c="#f9b4a7"><div class="f"><em data-folk="note"></em></div><b>Muziek maken</b><small>Draaien op het dak, of muziek maken in de bluesclub</small></div>
     <div class="ico" data-c="#f7f3ea"><div class="f"><em data-folk="disco"></em></div><b>Dansen</b><small>Een feestje op het dak bij zonsondergang</small></div>
     <div class="ico" data-c="#5ecac9"><div class="f"><em data-folk="dolphin"></em></div><b>Eiland ontdekken</b><small>Funchal, boven de wolken op Pico do Arieiro, dolfijnen spotten</small></div>
     <div class="ico" data-c="#f9b4a7"><div class="f"><em data-folk="hammock"></em></div><b>Lekker niks</b><small>In de hangmat, of ’s avonds naar de sterren kijken</small></div>
@@ -308,7 +334,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
         <li><i data-folk="stars"></i>Dakterras met sterrenhemel</li>
         <li><i data-folk="wave"></i>10 minuten van zee</li>
         <li><i data-folk="banana"></i>Eigen bananenbomen en grote moestuin</li>
-        <li><i data-folk="speaker"></i>Gitaren, drumstel en DJ-set</li>
+        <li><i data-folk="speaker"></i>Mobiele DJ-set en een bluesclub beneden</li>
         <li><i data-folk="fire"></i>Keuken met originele houtoven</li>
         <li><i data-folk="boot"></i>Wandelingen starten vlak bij huis</li>
         <li><i data-folk="car"></i>Met de taxi 15 minuten naar Funchal</li>
@@ -357,9 +383,10 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
   <div class="mtext">
     <span class="kicker">Als de zon ondergaat</span>
     <h2 class="retro">Muziek in huis</h2>
-    <p>Op Madeira staat een mobiele DJ-set klaar. Die zetten we neer waar het feestje is: beneden in huis, of boven op het dak onder de sterren. Er staan ook gitaren en een drumstel.</p>
-    <p>Nooit eerder gedraaid? Geen probleem. Nog nooit gedrumd? Nog leuker. En dansen mag altijd, ook als niemand kijkt. Zeker als iedereen kijkt.</p>
-    <p style="opacity:.8">Alvast in de vibe komen? Dit zijn een paar van mijn sets.</p>
+    <p>Op Madeira staat een mobiele DJ-set klaar. Die zetten we neer waar het feestje is: beneden in huis, of boven op het dak onder de sterren.</p>
+    <p>Zin om zelf muziek te maken? Dat kan! Beneden zit de <a class="inl" href="https://maps.app.goo.gl/xohaE7UWYRayJ1Hh8">Cozy Cotton Lounge</a>, de bluesclub van mijn vader. Hij organiseert er feesten en vindt het echt superleuk om jullie te ontvangen.</p>
+    <p>Ik kan niet wachten om samen muziek te maken. Het is het allerleukste wat er is, en dat te delen in deze tropische omgeving… echt een droom.</p>
+    <p style="opacity:.8">Alvast in de vibe komen? Deze sets heb ik op Madeira opgenomen.</p>
     <div class="srows">
       <a class="srow" href="https://soundcloud.com/vita-devies/vitamindj-se-boutique-hotel"><img src="img/art-se.jpg" alt=""><span><b>VitaminDJ @ SE Boutique Hotel</b><small>SoundCloud · Vitamin DJ</small></span><span class="pl"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#1f3433"/></svg></span></a>
       <a class="srow" href="https://soundcloud.com/vita-devies/test-kitchen-001-1"><img src="img/art-alien.jpg" alt=""><span><b>Higher Connections</b><small>SoundCloud · Vitamin DJ</small></span><span class="pl"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#1f3433"/></svg></span></a>
@@ -370,16 +397,20 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
       <a class="iglink" style="color:var(--yellow)" href="https://www.instagram.com/vitamin.dj_/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@vitamin.dj_</a>
     </div>
   </div>
-  <div class="ncol"><img src="img/alien.jpg" alt="Ufo-licht boven het dak" loading="lazy"><img src="img/djnacht.jpg" alt="Draaien onder de sterren" loading="lazy"><img src="img/nachtdorp.jpg" alt="Het verlichte dorp" loading="lazy"><img src="img/nachtpalm.jpg" alt="Palm en sterren" loading="lazy"><img src="img/zonsondergang.jpg" alt="Zonsondergang vanuit de slaapkamer" loading="lazy"><img src="img/maan.jpg" alt="Volle maan boven zee" loading="lazy"><img src="img/roze.jpg" alt="Roze zonsondergang" loading="lazy"><img src="img/djlaptop.jpg" alt="DJ-set bij nacht" loading="lazy"><img src="img/blauwuur.jpg" alt="Blauw uur" loading="lazy"><span class="deco" data-folk="moon" style="right:-18px;top:-30px"></span></div>
+  <div class="ncol"><div class="nf"><img class="on" src="img/djnacht.jpg" alt="" loading="lazy"><img src="img/sterren.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/nachtdorp.jpg" alt="" loading="lazy"><img src="img/sterren2.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/nachtpalm.jpg" alt="" loading="lazy"><img src="img/blauwuur.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/zonsondergang.jpg" alt="" loading="lazy"><img src="img/roze.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/maan.jpg" alt="" loading="lazy"><img src="img/zon.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/djlaptop.jpg" alt="" loading="lazy"><img src="img/djdak.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/s3.jpg" alt="" loading="lazy"><img src="img/valleizon.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/roze.jpg" alt="" loading="lazy"><img src="img/zonsondergang.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/blauwuur.jpg" alt="" loading="lazy"><img src="img/nachtdorp.jpg" alt="" loading="lazy"></div><span class="deco" data-folk="moon" style="right:-18px;top:-30px"></span></div>
 </section>
 
 <!-- PRIJS -->
 <section class="price" id="kosten">
   <div class="pin"><span class="deco" data-folk="banana" style="right:-26px;top:-30px;transform:rotate(18deg)"></span>
     <span class="kicker o">Wat kost het?</span>
-    <h2 class="retro t">Prijzen op aanvraag</h2>
-    <p>Voor nu zijn de prijzen op aanvraag.<br>Je kunt all-in gaan: dan organiseren en regelen wij alles. Of je doet meer zelf en kiest waar je aan meedoet. Dat bespreken we samen.</p>
-    <a class="btn" href="#meedoen" style="margin-top:.6em">Vraag de prijs op</a>
+    <h2 class="retro t">Twee manieren</h2>
+    <div class="tiers">
+      <div><b class="retro">Basis</b><span class="amt">vanaf €795</span><small>p.p. · 7 nachten</small><p>Slapen in het huis en ontbijt, met mij als host. Diners, vervoer en activiteiten kies en betaal je zelf.</p></div>
+      <div class="hot"><b class="retro">All-in</b><span class="amt">vanaf €1.495</span><small>p.p. · 7 nachten</small><p>Inclusief eten, vervoer op het eiland en activiteiten. Jij hoeft nergens meer aan te denken.</p></div>
+    </div>
+    <p class="note2">Je vlucht en een aansluitende reisverzekering regel je zelf.</p>
+    <a class="btn" href="#meedoen" style="margin-top:.4em">Ik heb interesse</a>
   </div>
 </section>
 
@@ -390,7 +421,8 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
   <div class="fcols"><div>
     <details><summary>Kan ik alleen komen?</summary><p>Ja, graag zelfs. Losse aanmeldingen brengen we samen in een groep. Je komt binnen als vreemde en gaat naar huis met nieuwe vrienden.</p></details>
     <details><summary>Kan ik ook met mijn vriendengroep komen?</summary><p>Zeker. Dan kijken we samen wanneer het jullie uitkomt en waar jullie zin in hebben.</p></details>
-    <details><summary>Wanneer kan ik komen?</summary><p>De data stemmen we af op aanvraag. Stuur een berichtje, dan kijken we samen wanneer de volgende week past.</p></details>
+    <details><summary>Wanneer is de eerste editie?</summary><p>In het voorjaar van 2027, in april of mei. Laat weten dat je interesse hebt, dan plannen we de data samen met de groep.</p></details>
+    <details><summary>Ben jij er de hele week bij?</summary><p>Ja! Ik ben er altijd bij als host en ik zorg voor het eten.</p></details>
     <details><summary>Met hoeveel mensen zijn we?</summary><p>Met zes tot tien personen. Er zijn zes slaapkamers, dus kamers worden gedeeld, bijvoorbeeld met een vriend(in).</p></details>
     <details><summary>Hoe is het huis?</summary><p>Traditioneel, eenvoudig en huiselijk. Het voelt als een homestay, niet als een hotel. Er is één badkamer die we met z’n allen delen.</p></details>
   </div><div>
@@ -398,7 +430,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
     <details><summary>Hoe fit moet ik zijn?</summary><p>De wandelingen zijn voor iedereen te doen. Vlak bij het huis starten mooie routes, en wie meer wil kan van daaruit ver lopen.</p></details>
     <details><summary>Is er een zwembad?</summary><p>Nee, maar de zee is tien minuten verderop, en Madeira heeft prachtige natuurlijke zwembaden in de rotsen.</p></details>
     <details><summary>Ik eet vegetarisch. Kan ik mee?</summary><p>De Madeiriaanse keuken draait veel om vis en vlees, en samen eten is een groot deel van de week. Flexitariërs zijn welkom. Eet je volledig vegetarisch, stuur dan even een berichtje, dan kijken we samen of het past.</p></details>
-    <details><summary>Wat kost het?</summary><p>Prijzen zijn voor nu op aanvraag. Je kunt all-in gaan, dan regelen wij alles, of je doet meer zelf. Stuur een DM, dan bespreken we het samen.</p></details>
+    <details><summary>Wat kost het?</summary><p>Basis vanaf €795 p.p. voor 7 nachten met ontbijt, of all-in vanaf €1.495 p.p. inclusief eten, vervoer en activiteiten. Je vlucht en een aansluitende reisverzekering regel je zelf.</p></details>
   </div></div>
 </section>
 
@@ -412,10 +444,10 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
     <img src="img/s4.jpg" alt="" loading="lazy" style="object-position:center 40%">
   </div>
   <div class="in">
-    <span class="kicker" style="color:#fff">Zon, zee en een goed feestje</span>
-    <h2 class="retro">Klinkt als<br>jouw vakantie?</h2>
-    <p>Stuur een DM, WhatsApp of mail, dan kijken we samen wanneer jij komt spelen.</p>
-    <div class="acts"><a class="btn y" href="https://www.instagram.com/high.on.life.travel/">Ik wil mee!</a><a class="btn wa" href="https://wa.me/31624377591?text=Hoi%20Vita!%20Ik%20heb%20zin%20in%20High%20on%20Life%20op%20Madeira%20%E2%98%80%EF%B8%8F"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px;margin-right:6px"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Stuur een WhatsApp</a><a class="btn ghost" href="mailto:vita@bakeapicture.nl?subject=High%20on%20Life%20Madeira">Mail me</a></div>
+    <span class="kicker" style="color:#fff">Eerste editie · april/mei 2027</span>
+    <h2 class="retro">Heb je<br>interesse?</h2>
+    <p>Laat het me weten! Dan kijk ik wie er komen en maken we samen een plan.</p>
+    <div class="acts"><a class="btn y" href="https://www.instagram.com/high.on.life.travel/">Stuur een DM</a><a class="btn wa" href="https://wa.me/31624377591?text=Hoi%20Vita!%20Ik%20heb%20zin%20in%20High%20on%20Life%20op%20Madeira%20%E2%98%80%EF%B8%8F"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px;margin-right:6px"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Stuur een WhatsApp</a><a class="btn ghost" href="mailto:vita@bakeapicture.nl?subject=High%20on%20Life%20Madeira">Mail me</a></div>
     <p style="margin-top:1.2em"><a class="iglink" style="color:#fff" href="https://www.instagram.com/high.on.life.travel/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Volg @high.on.life.travel</a></p>
   </div>
 </section>
@@ -424,6 +456,8 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
 <script src="map.js"></script>
 <script src="folk.js"></script>
 <script>
+// close mobile menu on click
+document.querySelectorAll('.nav .mob a').forEach(a=>a.addEventListener('click',()=>{const n=document.querySelector('.nav');n.classList.remove('open');n.querySelector('.burger').setAttribute('aria-expanded','false')}));
 // folk tickers
 [['tick2',[['Madeira','sun'],['Muziek','bird'],['Genieten','banana'],['Spelen','lion'],['Lekker eten','flower'],['Sterren','moon'],['Zon','cactus']]],
  ['tick3',[['Zin in','sun'],['Zon','cactus'],['Zee','dolphin'],['Samen eten','flower'],['Dansen','lion'],['Sterren kijken','moon'],['Bananen','banana'],['Nieuwe vrienden','bird']]]
@@ -445,6 +479,8 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
   el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);
   requestAnimationFrame(step);
 })();
+// night tiles crossfade one at a time
+(function(){const t=[...document.querySelectorAll('.nf')];let k=0;setInterval(()=>{const f=t[k%t.length];k+=4;const im=[...f.children];const i=im.findIndex(x=>x.classList.contains('on'));im[i].classList.remove('on');im[(i+1)%im.length].classList.add('on')},2200)})();
 // crossfading slides
 document.querySelectorAll('.slides').forEach((sl,k)=>{const im=[...sl.querySelectorAll('img')];let i=0;setTimeout(()=>setInterval(()=>{im[i].classList.remove('on');i=(i+1)%im.length;im[i].loading='eager';im[i].classList.add('on')},5000),k*1500)});
 // ticker
