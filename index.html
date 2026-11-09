@@ -263,7 +263,7 @@ h1 span,h2 span{white-space:nowrap}
 .chips2 span{display:inline-block;padding:.35em .8em;border-radius:999px;border:2px solid var(--teal);color:var(--teal);font-size:13px;transition:.15s;background:#fff}
 .chips2 input:checked + span{background:var(--teal);color:#fff}
 .chips2 input:focus-visible + span{outline:3px solid var(--yellow)}
-.inl2{max-width:200px;margin-top:2px}
+.inl2{max-width:200px;margin-top:6px}.inl2[hidden]{display:none}
 .hp{display:none}
 .sform .btn{justify-self:start;margin-top:4px}
 .fmsg{font-weight:700;min-height:1.4em}
@@ -544,7 +544,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
           <label><input type="radio" name="Hoe kom je" value="Met een vriend(in)"><span>Met een vriend(in)</span></label>
           <label><input type="radio" name="Hoe kom je" value="Met mijn eigen groep"><span>Met mijn eigen groep</span></label>
         </div>
-        <label class="inl2">Met hoeveel?<input name="Aantal personen" type="number" min="1" max="10" inputmode="numeric" placeholder="aantal personen"></label>
+        <label class="inl2" id="aantalw" hidden>Met hoeveel personen?<input name="Aantal personen" type="number" min="1" max="10" inputmode="numeric" placeholder="aantal personen"></label>
       </fieldset>
       <div class="row2">
         <fieldset><legend>Voorkeur</legend>
@@ -602,6 +602,7 @@ document.querySelectorAll('.nav .mob a').forEach(a=>a.addEventListener('click',(
 (function(){
   const f=document.getElementById('form'); if(!f) return;
   const msg=document.getElementById('fmsg');
+  f.querySelectorAll('input[name="Hoe kom je"]').forEach(r=>r.addEventListener('change',()=>{const w=document.getElementById('aantalw');const g=r.value==='Met mijn eigen groep'&&r.checked;w.hidden=!g;if(!g)w.querySelector('input').value='';}));
   f.addEventListener('submit',async e=>{
     e.preventDefault();
     if(f._honey.value) return;
@@ -615,7 +616,7 @@ document.querySelectorAll('.nav .mob a').forEach(a=>a.addEventListener('click',(
     try{
       const r=await fetch('https://formsubmit.co/ajax/vita@bakeapicture.nl',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
       const j=await r.json().catch(()=>({}));
-      if(!r.ok||j.success===false||j.success==='false') throw 0;
+      if(!r.ok||j.success===false||j.success==='false'){console.warn('FormSubmit:',r.status,j);throw j.message||r.status;}
       f.reset(); msg.className='fmsg ok'; msg.textContent='Yes! Je aanmelding is binnen. Ik neem snel contact met je op ☀️';
       btn.textContent='Verstuurd!';
     }catch(err){
