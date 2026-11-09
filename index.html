@@ -4,6 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>High on Life · Madeira</title>
+<meta name="description" content="Kom je buiten spelen op Madeira? Een weekje zon, zee, lekker eten, muziek en nieuwe mensen. Pilot in het voorjaar van 2027. Meld je aan!">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://high-on-life.travel-madeira.workers.dev/">
+<meta property="og:title" content="High on Life · Kom je buiten spelen op Madeira?">
+<meta property="og:description" content="Een weekje zon, zee, lekker eten, muziek en nieuwe mensen. Pilot in het voorjaar van 2027. Meld je aan!">
+<meta property="og:image" content="https://high-on-life.travel-madeira.workers.dev/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://high-on-life.travel-madeira.workers.dev/img/og.jpg">
+<link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<meta name="theme-color" content="#2b9e9b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
@@ -215,6 +228,50 @@ h1 span,h2 span{white-space:nowrap}
 .final p{font-size:17px;margin-bottom:1.6em}
 .btn.wa{background:#25d366;color:#fff}
 .final .acts{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+
+/* weave (Madeira textile) */
+.weave{height:22px;background:linear-gradient(180deg,#b51f24 0 3px,#f8c444 3px 5px,#b51f24 5px 8px,#1f3433 8px 10px,#2e8b3d 10px 13px,#f7f3ea 13px 15px,#b51f24 15px 19px,#df5a1d 19px 22px)}
+.weave.v{background:repeating-linear-gradient(90deg,#b51f24 0 10px,#f8c444 10px 13px,#1f3433 13px 16px,#2e8b3d 16px 22px,#f7f3ea 22px 25px,#df5a1d 25px 34px)}
+/* instagram block */
+.igs{background:var(--cream);padding:clamp(48px,7vw,84px) 22px}
+.igin{max-width:900px;margin:0 auto}
+.ighead{display:flex;align-items:center;gap:14px;margin-bottom:18px;flex-wrap:wrap}
+.igav{width:64px;height:64px;border-radius:50%;border:3px solid var(--orange);padding:2px;background:#fff}
+.ighead b{display:block;font-size:18px}
+.ighead span{font-size:13.5px;opacity:.75}
+.ighead .btn{margin-left:auto;display:inline-flex;align-items:center;gap:8px;font-size:16px}
+.iggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px}
+.iggrid a{display:block;overflow:hidden}
+.iggrid img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block;transition:transform .4s}
+.iggrid a:hover img{transform:scale(1.05)}
+/* signup form */
+.signup{background:#fff8ec}
+.sin{max-width:1080px;margin:0 auto;padding:clamp(56px,8vw,96px) 22px;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(28px,5vw,64px);align-items:start}
+.sintro{position:sticky;top:96px}
+.sintro h2{font-size:clamp(30px,4vw,46px);margin-bottom:.5em}
+.sintro p{margin-bottom:1em;max-width:30em}
+.sintro .small{font-size:13.5px;opacity:.75}
+.bigdeco{display:block;width:120px;height:120px;margin-top:10px}
+.bigdeco svg{width:100%;height:100%}
+.sform{background:var(--cream);border-radius:28px;padding:clamp(22px,4vw,40px);display:grid;gap:16px;border:2px solid rgba(31,52,51,.08)}
+.sform label{display:flex;flex-direction:column;gap:6px;font-weight:700;font-size:14px}
+.sform input:not([type=radio]):not([type=checkbox]),.sform textarea,.sform select{font:inherit;font-weight:500;font-size:15px;padding:12px 14px;border:2px solid rgba(31,52,51,.15);border-radius:14px;background:#fff;color:var(--ink);width:100%}
+.sform input:focus,.sform textarea:focus,.sform select:focus{outline:none;border-color:var(--teal)}
+.sform fieldset{border:0;padding:0;margin:0;display:grid;gap:8px}
+.sform legend{font-weight:700;font-size:14px;margin-bottom:8px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.chips2{display:flex;flex-wrap:wrap;gap:8px}
+.chips2 label{flex-direction:row;font-weight:600;cursor:pointer}
+.chips2 input{position:absolute;opacity:0;pointer-events:none}
+.chips2 span{display:inline-block;padding:.5em 1em;border-radius:999px;border:2px solid var(--teal);color:var(--teal);font-size:14px;transition:.15s;background:#fff}
+.chips2 input:checked + span{background:var(--teal);color:#fff}
+.chips2 input:focus-visible + span{outline:3px solid var(--yellow)}
+.inl2{max-width:240px;margin-top:6px}
+.hp{display:none}
+.sform .btn{justify-self:start;margin-top:4px}
+.fmsg{font-weight:700;min-height:1.4em}
+.fmsg.ok{color:var(--teal)}.fmsg.err{color:var(--orange)}
+@media (max-width:820px){.sin{grid-template-columns:1fr}.sintro{position:static}.row2{grid-template-columns:1fr}.bigdeco{display:none}.iggrid{gap:3px}}
 footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
 
 @media (max-width:760px){
@@ -264,11 +321,11 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
       <li><a href="#vita">Wie ben ik</a></li>
       <li><a href="#muziek">Muziek</a></li>
       <li><a href="#vragen">Vragen</a></li>
-      <li><a class="cta" href="#meedoen">Interesse?</a></li>
+      <li><a class="cta" href="#aanmelden">Meld je aan</a></li>
     </ul>
     <button class="burger" aria-label="Menu" aria-expanded="false" onclick="const n=this.closest('.nav');const o=n.classList.toggle('open');this.setAttribute('aria-expanded',o)"><span></span><span></span><span></span></button>
     <div class="mob">
-      <a href="#wat">Wat is het</a><a href="#doen">Wat doen we</a><a href="#huis">Het huis</a><a href="#eten">Eten</a><a href="#kosten">Kosten</a><a href="#vita">Wie ben ik</a><a href="#muziek">Muziek</a><a href="#vragen">Vragen</a><a class="cta" href="#meedoen">Interesse?</a>
+      <a href="#wat">Wat is het</a><a href="#doen">Wat doen we</a><a href="#huis">Het huis</a><a href="#eten">Eten</a><a href="#kosten">Kosten</a><a href="#vita">Wie ben ik</a><a href="#muziek">Muziek</a><a href="#vragen">Vragen</a><a class="cta" href="#aanmelden">Meld je aan</a>
     </div>
   </div>
 </nav>
@@ -284,7 +341,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
     <h1 class="retro">Kom je buiten spelen<br>op Madeira?</h1>
     <p>Even een weekje helemaal niks moeten. Gewoon lekker spelen: zwemmen, muziek maken, eten, dansen, springen, lachen. Alles mag er zijn.</p>
     <p>We hebben op Madeira een huis tot onze beschikking, en in het voorjaar van 2027 doe ik de eerste editie als pilot. Ben je benieuwd en heb je zin om te komen chillen en spelen? Meld je aan. Let’s go!</p>
-    <a class="btn" href="#meedoen">Meld je aan!</a>
+    <a class="btn" href="#aanmelden">Meld je aan!</a>
   </div>
 </header>
 
@@ -389,9 +446,9 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
     <p>Ik kan niet wachten om samen muziek te maken. Het is het allerleukste wat er is, en dat te delen in deze tropische omgeving… echt een droom.</p>
     <p style="opacity:.8">Alvast in de vibe komen? Deze sets heb ik op Madeira opgenomen.</p>
     <div class="srows">
-      <a class="srow" href="https://soundcloud.com/vita-devies/vitamindj-se-boutique-hotel"><img src="img/art-se.jpg" alt=""><span><b>VitaminDJ @ SE Boutique Hotel</b><small>SoundCloud · Vitamin DJ</small></span><span class="pl"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#1f3433"/></svg></span></a>
-      <a class="srow" href="https://soundcloud.com/vita-devies/test-kitchen-001-1"><img src="img/art-alien.jpg" alt=""><span><b>Higher Connections</b><small>SoundCloud · Vitamin DJ</small></span><span class="pl"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#1f3433"/></svg></span></a>
-      <a class="srow" href="https://soundcloud.com/vita-devies/vitamindj-cosy-cotton-lounge-1"><img src="img/art-banaan.jpg" alt=""><span><b>VitaminDJ · Cosy Cotton Lounge</b><small>SoundCloud · Vitamin DJ</small></span><span class="pl"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#1f3433"/></svg></span></a>
+      <a class="srow" href="https://soundcloud.com/vita-devies/vitamindj-se-boutique-hotel"><img src="img/art-se.jpg" alt=""><span><b>VitaminDJ @ Sé Boutique Hotel – Madeira</b><small>13-07-2026 · SoundCloud</small></span><span class="pl"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#1f3433"/></svg></span></a>
+      <a class="srow" href="https://soundcloud.com/vita-devies/higher-connections-040726"><img src="img/art-alien.jpg" alt=""><span><b>Higher connection 👽🛸✨🎶</b><small>04-07-2026 · SoundCloud</small></span><span class="pl"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#1f3433"/></svg></span></a>
+      <a class="srow" href="https://soundcloud.com/vita-devies/vitamindj-cosy-cotton-lounge-1"><img src="img/art-banaan.jpg" alt=""><span><b>VitaminDJ @ Cosy Cotton Lounge Madeira</b><small>03-07-2026 · SoundCloud</small></span><span class="pl"><svg width="14" height="14" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#1f3433"/></svg></span></a>
     </div>
     <div class="mlinks">
       <a class="sc" href="https://soundcloud.com/vita-devies"><span class="p"><svg width="16" height="16" viewBox="0 0 20 20"><path d="M5 2 L18 10 L5 18Z" fill="#df5a1d"/></svg></span>Alle sets op SoundCloud</a>
@@ -411,7 +468,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
       <div class="hot"><b class="retro">All-in</b><span class="amt">vanaf €1.395</span><small>p.p. · 7 nachten</small><p>Inclusief eten, vervoer op het eiland en activiteiten. Jij hoeft nergens meer aan te denken.</p></div>
     </div>
     <p class="note2">Je vlucht en een aansluitende reisverzekering regel je zelf.</p>
-    <a class="btn" href="#meedoen" style="margin-top:.4em">Ik heb interesse</a>
+    <a class="btn" href="#aanmelden" style="margin-top:.4em">Meld je aan</a>
   </div>
 </section>
 
@@ -436,7 +493,20 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
   </div></div>
 </section>
 
-<div class="ticker t2 t3" aria-hidden="true"><div class="tr" id="tick3"></div></div>
+<!-- INSTAGRAM -->
+<div class="weave" aria-hidden="true"></div>
+<section class="igs">
+  <div class="igin">
+    <div class="ighead">
+      <img src="img/logo.png" alt="" class="igav">
+      <div><b>@high.on.life.travel</b><span>Kijk alvast rond op Instagram</span></div>
+      <a class="btn" href="https://www.instagram.com/high.on.life.travel/"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg> Volgen</a>
+    </div>
+    <div class="iggrid"><a href="https://www.instagram.com/high.on.life.travel/"><img src="img/funchal.jpg" alt="" loading="lazy"></a><a href="https://www.instagram.com/high.on.life.travel/"><img src="img/pannenkoek.jpg" alt="" loading="lazy"></a><a href="https://www.instagram.com/high.on.life.travel/"><img src="img/djnacht.jpg" alt="" loading="lazy"></a><a href="https://www.instagram.com/high.on.life.travel/"><img src="img/kamer2b.jpg" alt="" loading="lazy"></a><a href="https://www.instagram.com/high.on.life.travel/"><img src="img/kliffhuis.jpg" alt="" loading="lazy"></a><a href="https://www.instagram.com/high.on.life.travel/"><img src="img/tuin.jpg" alt="" loading="lazy"></a></div>
+  </div>
+</section>
+<div class="weave" aria-hidden="true"></div>
+
 <!-- FINAL -->
 <section class="final" id="meedoen">
   <div class="slides" aria-hidden="true">
@@ -448,9 +518,78 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
   <div class="in">
     <span class="kicker" style="color:#fff">Eerste editie · april/mei 2027</span>
     <h2 class="retro">Heb je<br>interesse?</h2>
-    <p>Laat het me weten! Dan kijk ik wie er komen en maken we samen een plan.</p>
-    <div class="acts"><a class="btn y" href="https://www.instagram.com/high.on.life.travel/">Stuur een DM</a><a class="btn wa" href="https://wa.me/31624377591?text=Hoi%20Vita!%20Ik%20heb%20zin%20in%20High%20on%20Life%20op%20Madeira%20%E2%98%80%EF%B8%8F"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px;margin-right:6px"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Stuur een WhatsApp</a><a class="btn ghost" href="mailto:vita@bakeapicture.nl?subject=High%20on%20Life%20Madeira">Mail me</a></div>
+    <p>Meld je aan zonder verplichtingen. Dan kijk ik wie er komen en maken we samen een plan.</p>
+    <div class="acts"><a class="btn y" href="#aanmelden">Meld je aan</a><a class="btn wa" href="https://wa.me/31624377591?text=Hoi%20Vita!%20Ik%20heb%20zin%20in%20High%20on%20Life%20op%20Madeira%20%E2%98%80%EF%B8%8F"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-3px;margin-right:6px"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.1 5.1 0 0 0 1.1 2.7 11.7 11.7 0 0 0 4.5 4c1.7.7 2.3.8 3.1.7.5-.1 1.5-.6 1.7-1.2s.2-1.1.2-1.2-.2-.2-.4-.3z"/></svg>Stuur een WhatsApp</a><a class="btn ghost" href="mailto:vita@bakeapicture.nl?subject=High%20on%20Life%20Madeira">Mail me</a></div>
     <p style="margin-top:1.2em"><a class="iglink" style="color:#fff" href="https://www.instagram.com/high.on.life.travel/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>Volg @high.on.life.travel</a></p>
+  </div>
+</section>
+
+<!-- AANMELDEN -->
+<section class="signup" id="aanmelden">
+  <div class="weave" aria-hidden="true"></div>
+  <div class="sin">
+    <div class="sintro">
+      <span class="kicker o">Meld je aan</span>
+      <h2 class="retro t">Ik doe mee<br><span class="o">met de pilot!</span></h2>
+      <p>Vul in wat je kwijt wil. Alleen je naam en e-mail zijn nodig, de rest mag, maar hoeft niet. Ik neem daarna persoonlijk contact met je op.</p>
+      <p class="small">Aanmelden is vrijblijvend. Het helpt mij om te zien wie er zin heeft, zodat we samen de week kunnen plannen.</p>
+      <span class="bigdeco" data-folk="sun"></span>
+    </div>
+    <form id="form" class="sform" novalidate>
+      <div class="row2">
+        <label>Naam *<input name="Naam" required autocomplete="name"></label>
+        <label>E-mail *<input name="E-mail" type="email" required autocomplete="email"></label>
+      </div>
+      <div class="row2">
+        <label>Telefoon (WhatsApp)<input name="Telefoon" type="tel" autocomplete="tel"></label>
+        <label>Leeftijd<input name="Leeftijd" type="number" min="16" max="99" inputmode="numeric"></label>
+      </div>
+      <fieldset><legend>Hoe kom je?</legend>
+        <div class="chips2">
+          <label><input type="radio" name="Hoe kom je" value="Solo"><span>Solo</span></label>
+          <label><input type="radio" name="Hoe kom je" value="Met een vriend(in)"><span>Met een vriend(in)</span></label>
+          <label><input type="radio" name="Hoe kom je" value="Met mijn eigen groep"><span>Met mijn eigen groep</span></label>
+        </div>
+        <label class="inl2">Met hoeveel personen?<input name="Aantal personen" type="number" min="1" max="10" inputmode="numeric"></label>
+      </fieldset>
+      <div class="row2">
+        <fieldset><legend>Voorkeur</legend>
+          <div class="chips2">
+            <label><input type="radio" name="Voorkeur maand" value="April"><span>April</span></label>
+            <label><input type="radio" name="Voorkeur maand" value="Mei"><span>Mei</span></label>
+            <label><input type="radio" name="Voorkeur maand" value="Maakt niet uit"><span>Maakt niet uit</span></label>
+          </div>
+        </fieldset>
+        <fieldset><legend>Arrangement</legend>
+          <div class="chips2">
+            <label><input type="radio" name="Arrangement" value="Basis"><span>Basis</span></label>
+            <label><input type="radio" name="Arrangement" value="All-in"><span>All-in</span></label>
+            <label><input type="radio" name="Arrangement" value="Weet ik nog niet"><span>Weet nog niet</span></label>
+          </div>
+        </fieldset>
+      </div>
+      <fieldset><legend>Waar heb je zin in?</legend>
+        <div class="chips2">
+          <label><input type="checkbox" name="Zin in" value="Wandelen"><span>Wandelen</span></label>
+          <label><input type="checkbox" name="Zin in" value="Zwemmen"><span>Zwemmen</span></label>
+          <label><input type="checkbox" name="Zin in" value="Samen koken"><span>Samen koken</span></label>
+          <label><input type="checkbox" name="Zin in" value="Uit eten"><span>Uit eten</span></label>
+          <label><input type="checkbox" name="Zin in" value="Muziek maken"><span>Muziek maken</span></label>
+          <label><input type="checkbox" name="Zin in" value="Dansen"><span>Dansen</span></label>
+          <label><input type="checkbox" name="Zin in" value="Eiland ontdekken"><span>Eiland ontdekken</span></label>
+          <label><input type="checkbox" name="Zin in" value="Lekker niks"><span>Lekker niks</span></label>
+        </div>
+      </fieldset>
+      <label>Wie ben jij? Vertel eens iets over jezelf<textarea name="Wie ben jij" rows="3"></textarea></label>
+      <label>Wat brengt je hier? Waarom heb je zin in deze week?<textarea name="Wat brengt je hier" rows="3"></textarea></label>
+      <label>Hoe ben je bij High on Life terechtgekomen?
+        <select name="Hoe gevonden"><option value="">Kies…</option><option>Instagram</option><option>Via Vita zelf</option><option>Via vrienden of familie</option><option>Via Bake a Picture</option><option>Via Vitamin DJ / Club Vitamin</option><option>Anders</option></select>
+      </label>
+      <label>Nog iets kwijt?<textarea name="Opmerkingen" rows="2"></textarea></label>
+      <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
+      <button class="btn" type="submit">Verstuur mijn aanmelding</button>
+      <p class="fmsg" id="fmsg" role="status"></p>
+    </form>
   </div>
 </section>
 <footer>High on Life · Campanário, Madeira</footer>
@@ -460,6 +599,33 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
 <script>
 // close mobile menu on click
 document.querySelectorAll('.nav .mob a').forEach(a=>a.addEventListener('click',()=>{const n=document.querySelector('.nav');n.classList.remove('open');n.querySelector('.burger').setAttribute('aria-expanded','false')}));
+
+// signup form -> email via FormSubmit
+(function(){
+  const f=document.getElementById('form'); if(!f) return;
+  const msg=document.getElementById('fmsg');
+  f.addEventListener('submit',async e=>{
+    e.preventDefault();
+    if(f._honey.value) return;
+    const naam=f.elements['Naam'].value.trim(), mail=f.elements['E-mail'].value.trim();
+    if(!naam||!/^\S+@\S+\.\S+$/.test(mail)){msg.className='fmsg err';msg.textContent='Vul je naam en een geldig e-mailadres in.';return;}
+    const data={};
+    new FormData(f).forEach((v,k)=>{if(k==='_honey'||!v)return;data[k]=data[k]?data[k]+', '+v:v;});
+    data._subject='Nieuwe aanmelding High on Life: '+naam;
+    data._template='table'; data._replyto=mail; data._captcha='false';
+    const btn=f.querySelector('button'); btn.disabled=true; btn.textContent='Versturen…';
+    try{
+      const r=await fetch('https://formsubmit.co/ajax/vita@bakeapicture.nl',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)});
+      const j=await r.json().catch(()=>({}));
+      if(!r.ok||j.success===false||j.success==='false') throw 0;
+      f.reset(); msg.className='fmsg ok'; msg.textContent='Yes! Je aanmelding is binnen. Ik neem snel contact met je op ☀️';
+      btn.textContent='Verstuurd!';
+    }catch(err){
+      msg.className='fmsg err'; msg.innerHTML='Oeps, dat ging niet goed. Mail me even op <a href="mailto:vita@bakeapicture.nl">vita@bakeapicture.nl</a> of stuur een WhatsApp.';
+      btn.disabled=false; btn.textContent='Verstuur mijn aanmelding';
+    }
+  });
+})();
 // folk tickers
 [['tick2',[['Madeira','sun'],['Muziek','bird'],['Genieten','banana'],['Spelen','lion'],['Lekker eten','flower'],['Sterren','moon'],['Zon','cactus']]],
  ['tick3',[['Zin in','sun'],['Zon','cactus'],['Zee','dolphin'],['Samen eten','flower'],['Dansen','lion'],['Sterren kijken','moon'],['Bananen','banana'],['Nieuwe vrienden','bird']]]
