@@ -194,10 +194,7 @@ h1 span,h2 span{white-space:nowrap}
 .srow small{font-size:12px;opacity:.7}
 .srow .pl{margin-left:auto;flex:0 0 38px;height:38px;border-radius:50%;background:var(--yellow);display:grid;place-items:center}
 .ncol{position:relative;display:grid;grid-template-columns:repeat(3,1fr);gap:6px;max-width:620px;width:100%;margin-left:auto}
-.nf{position:relative;aspect-ratio:1;overflow:hidden}
-.nf:nth-child(1){grid-column:span 2;grid-row:span 2;aspect-ratio:auto}
-.nf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.6s ease}
-.nf img.on{opacity:1}
+.ncol img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
 /* FAQ */
 .faqs{max-width:1100px;margin:0 auto;padding:clamp(64px,9vw,110px) 22px}
 .fcols{display:grid;grid-template-columns:1fr 1fr;gap:0 14px;align-items:start}
@@ -305,7 +302,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
     <div class="pills t"><span>Solo of met vrienden</span><span>6 tot 10 personen</span><span>April/mei 2027</span></div>
   </div>
   <div class="half stripes">
-    <div class="tilt"><span class="clip"></span><video class="loop" src="vid/zee.mp4" poster="vid/zee.jpg" muted loop playsinline preload="none"></video></div>
+    <div class="tilt"><span class="clip"></span><video class="loop" src="vid/samen.mp4" poster="vid/samen.jpg" muted loop playsinline preload="none"></video></div>
   </div>
 </section>
 
@@ -401,7 +398,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
       <a class="iglink" style="color:var(--yellow)" href="https://www.instagram.com/vitamin.dj_/"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>@vitamin.dj_</a>
     </div>
   </div>
-  <div class="ncol"><div class="nf"><img class="on" src="img/djnacht.jpg" alt="" loading="lazy"><img src="img/sterren.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/nachtdorp.jpg" alt="" loading="lazy"><img src="img/sterren2.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/nachtpalm.jpg" alt="" loading="lazy"><img src="img/blauwuur.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/zonsondergang.jpg" alt="" loading="lazy"><img src="img/roze.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/maan.jpg" alt="" loading="lazy"><img src="img/zon.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/djlaptop.jpg" alt="" loading="lazy"><img src="img/djdak.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/s3.jpg" alt="" loading="lazy"><img src="img/valleizon.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/roze.jpg" alt="" loading="lazy"><img src="img/zonsondergang.jpg" alt="" loading="lazy"></div><div class="nf"><img class="on" src="img/blauwuur.jpg" alt="" loading="lazy"><img src="img/nachtdorp.jpg" alt="" loading="lazy"></div><span class="deco" data-folk="moon" style="right:-18px;top:-30px"></span></div>
+  <div class="ncol"><img src="img/djnacht.jpg" alt="Draaien onder de sterren"><img src="img/nachtdorp.jpg" alt="Het verlichte dorp met sterren"><img src="img/maan.jpg" alt="Volle maan boven zee"><img src="img/nachtpalm.jpg" alt="Palm en sterren"><img src="img/zonsondergang.jpg" alt="Zonsondergang vanuit de slaapkamer"><img src="img/djlaptop.jpg" alt="DJ-set op het dak bij nacht"><span class="deco" data-folk="moon" style="right:-18px;top:-30px"></span></div>
 </section>
 
 <!-- PRIJS -->
@@ -432,6 +429,7 @@ footer{text-align:center;padding:24px 20px 36px;font-size:13px;opacity:.75}
   </div><div>
     <details><summary>Moet ik overal aan meedoen?</summary><p>Nee. Er staat genoeg klaar, maar alles is vrijblijvend. Wil je een middag niks op het dak? Helemaal goed.</p></details>
     <details><summary>Hoe fit moet ik zijn?</summary><p>De wandelingen zijn voor iedereen te doen. Vlak bij het huis starten mooie routes, en wie meer wil kan van daaruit ver lopen.</p></details>
+    <details><summary>Wat neem ik mee?</summary><p>Zwemspullen, goede wandelschoenen, een warme trui voor de avonden in de bergen en vooral heel veel zin. Handdoeken en beddengoed zijn er.</p></details>
     <details><summary>Is er een zwembad?</summary><p>Nee, maar de zee is tien minuten verderop, en Madeira heeft prachtige natuurlijke zwembaden in de rotsen.</p></details>
     <details><summary>Ik eet vegetarisch. Kan ik mee?</summary><p>De Madeiriaanse keuken draait veel om vis en vlees, en samen eten is een groot deel van de week. Flexitariërs zijn welkom. Eet je volledig vegetarisch, stuur dan even een berichtje, dan kijken we samen of het past.</p></details>
     <details><summary>Wat kost het?</summary><p>Basis vanaf €695 p.p. voor 7 nachten met ontbijt, of all-in vanaf €1.395 p.p. inclusief eten, vervoer en activiteiten. Je vlucht en een aansluitende reisverzekering regel je zelf.</p></details>
@@ -483,8 +481,6 @@ document.querySelectorAll('.nav .mob a').forEach(a=>a.addEventListener('click',(
   el.addEventListener('pointerup',up);el.addEventListener('pointercancel',up);
   requestAnimationFrame(step);
 })();
-// night tiles crossfade one at a time
-(function(){const t=[...document.querySelectorAll('.nf')];let k=0;setInterval(()=>{const f=t[k%t.length];k+=4;const im=[...f.children];const i=im.findIndex(x=>x.classList.contains('on'));im[i].classList.remove('on');im[(i+1)%im.length].classList.add('on')},2200)})();
 // crossfading slides
 document.querySelectorAll('.slides').forEach((sl,k)=>{const im=[...sl.querySelectorAll('img')];let i=0;setTimeout(()=>setInterval(()=>{im[i].classList.remove('on');i=(i+1)%im.length;im[i].loading='eager';im[i].classList.add('on')},5000),k*1500)});
 // ticker
